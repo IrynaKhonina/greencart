@@ -1,4 +1,4 @@
-import {assets, categories} from "../assets/assets.js";
+import {categories} from "../assets/assets.js";
 import {useAppContext} from "../contex/AppContex.jsx";
 
 
