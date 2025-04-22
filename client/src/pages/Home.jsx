@@ -3,6 +3,7 @@ import {Categories} from "../components/Categories.jsx";
 import {BestSeller} from "../components/BestSeller.jsx";
 import {BottomBanner} from "../components/BottomBanner.jsx";
 import {NewsLetter} from "../components/NewsLetter.jsx";
+import {Footer} from "../components/Footer.jsx";
 
 export const Home = () => {
     return (
@@ -12,6 +13,7 @@ export const Home = () => {
             <BestSeller/>
             <BottomBanner/>
             <NewsLetter/>
+
         </div>
     );
 };

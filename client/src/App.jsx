@@ -2,13 +2,18 @@ import {Navbar} from "./components/Navbar.jsx";
 import {Home} from "./pages/Home.jsx";
 import {Route, Routes, useLocation} from "react-router";
 import {Toaster} from "react-hot-toast";
+import {Footer} from "./components/Footer.jsx";
+import {Login} from "./components/Login.jsx";
+import { useAppContext } from "./contex/AppContex.jsx";
 
 const App = () => {
 
     const isSellerPath = useLocation().pathname.includes("seller");
+    const {showUserLogin} = useAppContext()
     return (
         <div>
             {isSellerPath ? null : <Navbar/>}
+            {showUserLogin ? <Login/> : null}
 
             <Toaster/>
 
@@ -18,7 +23,7 @@ const App = () => {
                 </Routes>
             </div>
 
-
+            {!isSellerPath && <Footer/>}
         </div>
     );
 };
