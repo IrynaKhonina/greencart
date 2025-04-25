@@ -5,6 +5,7 @@ import {Toaster} from "react-hot-toast";
 import {Footer} from "./components/Footer.jsx";
 import {Login} from "./components/Login.jsx";
 import { useAppContext } from "./contex/AppContex.jsx";
+import {AllProducts} from "./pages/AllProducts.jsx";
 
 const App = () => {
 
@@ -19,7 +20,8 @@ const App = () => {
 
             <div className={`${isSellerPath} ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='/products' element={<AllProducts/>}/>
                 </Routes>
             </div>
 
