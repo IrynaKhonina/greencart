@@ -31,6 +31,10 @@ export const Cart = () => {
         setCartArray(tempArray)
     }
 
+    const placeOrder =async () =>{
+
+    }
+
     useEffect(() => {
         if (products.length > 0 && cartItems) {
             getCart()
@@ -68,7 +72,8 @@ export const Cart = () => {
                                     <p>Weight: <span>{product.weight || "N/A"}</span></p>
                                     <div className='flex items-center'>
                                         <p>Qty:</p>
-                                        <select className='outline-none'>
+                                        <select onChange={e=>updateCartItem(product._id,Number(e.target.value))}
+                                            className='outline-none'>
                                             {Array(cartItems[product._id] > 9 ?
                                                 cartItems[product._id] : 9).fill('').map((_, index) => (
                                                 <option key={index} value={index + 1}>{index + 1}</option>
@@ -141,6 +146,7 @@ export const Cart = () => {
                             <p className="text-sm font-medium uppercase mt-6">Payment Method</p>
 
                             <select onChange={e=>setPaymentOptions(e.target.value)}
+                                    value={cartItems[product._id]}
                                     className="w-full border border-gray-300 bg-white px-3 py-2 mt-2 outline-none">
                             <option value="COD">Cash On Delivery</option>
                             <option value="Online">Online Payment</option>
@@ -164,7 +170,7 @@ export const Cart = () => {
                             </p>
                             </div>
 
-                            <button
+                            <button onClick={placeOrder}
                             className="w-full py-3 mt-6 cursor-pointer bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition">
                                 {paymentOptions === "COD" ? "Place Order" : "Proceed to Checkout"}
                             </button>
